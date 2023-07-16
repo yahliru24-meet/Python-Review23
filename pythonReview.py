@@ -26,15 +26,24 @@ def add_comment(youtubevideo, username, comment_text):
 	return youtubevideo
 
 
-video = create_youtube_video("Hi", "Hello World!")
-print(video)
-like(video)
-dislike(video)
-print(video)
-add_comment(video,"yahli", "this video is good!")
-print(video)
-for i in range(495):
-	like(video)
-print(video["likes"])
+def main():
+	video = create_youtube_video("Hi", "Hello World!")
+	for i in range(495):
+		like(video)
+	for i in range(124):
+		dislike(video)
+	add_comment(video,"Yahli", "This video is good!")
 
+	print("""
+		Title: {}
+		Description: {}
 
+		{} Likes :)
+		{} Dislikes :(
+
+		Comments:
+		+++++++++
+		{}
+		""".format(video["title"], video["description"], video["likes"], video["dislikes"], video["comments"]))
+
+main()
